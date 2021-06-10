@@ -41,7 +41,8 @@ function App() {
   return (
     <div className="App">
       <Timer/>
-      <div className="randomParaShower" tabIndex="-1" onKeyPress={false && keyPressed} ref={typeingText}>
+      <h2>speed:<span>0</span></h2>
+      <div className="randomParaShower" tabIndex="-1" onKeyPress={keyPressed} ref={typeingText}>
         {para && para.split("").map((letter,index)=><span className={index===count ? "letterToType focused":"letterToType"} style={{color: (redIndex.includes(index) || index===falseIndex) ? "red":"black"}}>{letter}</span>)}
       </div>
       <button onClick={resetClickHandler}>
