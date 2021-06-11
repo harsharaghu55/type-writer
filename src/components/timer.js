@@ -1,23 +1,30 @@
 import React,{useState,useEffect}from 'react'
+import {connect} from 'react-redux'
 
+function Timer(props){
+    const [seconds,setSeconds] = useState(60)
 
-function Timer(){
-    const [seconds,setSeconds] = useState(0)
-
-    function upDateTime(){
-        setSeconds(60)
-    }
+    
     
     useEffect(()=>{
-        seconds > 0 && setTimeout(()=>setSeconds(seconds-1),1000)
-    },[seconds])
+        props.clockRunning && setTimeout(()=>setSeconds(seconds-1),1000)
+    },[seconds,props])
 
     return(
         <div className="colck">
             <h3>{seconds}</h3>
-            <button onClick={upDateTime}>start Time</button>
         </div>
     )
 }
 
-export default Timer
+const mapStateToProps = (state)=>{
+    return state
+}
+const mapDispatchProops = (dispatch)=>{
+return {
+        
+    }
+}
+export default connect(mapStateToProps,mapDispatchProops) (Timer)
+
+// <button onClick={upDateTime}>start Time</button>
