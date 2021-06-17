@@ -1,18 +1,18 @@
-import React,{useState,useEffect}from 'react'
+import React,{useEffect}from 'react'
 import {connect} from 'react-redux'
 
-function Timer(props){
-    const [seconds,setSeconds] = useState(60)
-
-    
+function Timer({clockRunning,setSeconds,seconds,resetClickHandler}){
     
     useEffect(()=>{
-        props.clockRunning && setTimeout(()=>setSeconds(seconds-1),1000)
-    },[seconds,props])
+        (seconds>0 && clockRunning) && setTimeout(()=>setSeconds(seconds-1),100)
+        if(seconds === 0){
+            resetClickHandler();
+        }
+    },[seconds,clockRunning])
 
     return(
         <div className="colck">
-            <h3>{seconds}</h3>
+            <h3>Time Left : {seconds}</h3>
         </div>
     )
 }
@@ -22,9 +22,8 @@ const mapStateToProps = (state)=>{
 }
 const mapDispatchProops = (dispatch)=>{
 return {
-        
+      setSeconds: (upDateSeconds)=> dispatch({type:"setSeconds",payLoad:upDateSeconds})
     }
 }
 export default connect(mapStateToProps,mapDispatchProops) (Timer)
 
-// <button onClick={upDateTime}>start Time</button>

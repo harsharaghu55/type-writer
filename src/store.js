@@ -5,4 +5,4 @@ const rStore = ()=>{
     return createStore(rootReducer)
 }
 
-export default rStore
+export default rStore 

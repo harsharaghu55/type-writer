@@ -3,7 +3,8 @@ const counterState={
     count:0,
     indexsOfwrongtype:[],
     numberofWords:0,
-    clockRunning:false
+    clockRunning:false,
+    seconds:60
 }
 
 const rootReducer = (state=counterState,action) =>{
@@ -14,9 +15,10 @@ const rootReducer = (state=counterState,action) =>{
             return {...state,count:action.payLoad}
         case "setIndexsOfwrongtype":
             return {...state,indexsOfwrongtype:[...action.payLoad]}
-
         case "setClock":
             return {...state,clockRunning:action.payLoad}
+        case "setSeconds":
+            return {...state,seconds:action.payLoad}
         default:
             return state
     }

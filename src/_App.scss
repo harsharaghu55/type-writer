@@ -1,15 +1,60 @@
 .App {
   text-align: center;
+  height:100vh;
+  width:100vw;
 }
+
+.headder{
+  height:10%;
+  background-color: #2F5D62;
+}
+
+.typingAreaContainer{
+  height:90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .resultPanel{
+    height:5%;
+    width:100%;
+    background-color: #5E8B7E;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-left:40px;
+    padding-right:40px;
+  }
+  .randomParaShower{
+    font-size: medium;
+    font-weight: 600;
+  }
+  .randomParaShower:focus{
+    outline:none;
+    background-color: #A7C4BC
+  }
+  .resetButton{
+    margin:10px;
+    background-color: red;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  
+}
+
 .focused{
   border-bottom: 1px solid black;
   background-color:gray;
   color:white;
 }
-.randomParaShower:focus{
-  outline:none;
-  border:3px solid black;
+
+.letterToType{
+  padding: 2px;
 }
+
+
+
 // .App-logo {
 //   height: 40vmin;
 //   pointer-events: none;
